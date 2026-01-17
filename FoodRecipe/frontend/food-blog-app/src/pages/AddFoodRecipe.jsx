@@ -23,7 +23,7 @@ export default function AddFoodRecipe() {
 
         }
 
-        await axios.post("http://localhost:5000/recipe", formData, {
+        await axios.post("https://recipe-app-rgal.onrender.com/recipe", formData, {
         headers:{
             authorization: "bearer " + localStorage.getItem("token")
         }
