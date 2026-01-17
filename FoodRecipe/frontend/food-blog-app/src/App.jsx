@@ -10,7 +10,7 @@ import RecipeDetails from './pages/RecipeDetails'
 
 const getAllRecipes=async()=>{
   let allRecipes=[]  // it will store all recipe in array
-  await axios.get('http://localhost:5000/recipe') // it will get all the recipes
+  await axios.get('https://recipe-app-rgal.onrender.com/recipe') // it will get all the recipes
   .then(res=>{
     allRecipes=res.data  // response will be stored in allrecipes
   })
@@ -25,7 +25,7 @@ const getMyRecipes =async()=>{
 }
 
 const getRecipe = async ({ params }) => {
-  const res = await axios.get(`http://localhost:5000/recipe/${params.id}`)
+  const res = await axios.get(`https://recipe-app-rgal.onrender.com/recipe/${params.id}`)
   return res.data
 }
 
