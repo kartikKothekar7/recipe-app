@@ -8,7 +8,6 @@ const PORT = process.env.PORT || 3000;
 
 connectDb();
 
-/* ✅ FULL CORS CONFIG */
 app.use(cors({
     origin: "https://recipe-app-fronted.onrender.com",
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
@@ -16,8 +15,7 @@ app.use(cors({
     credentials: true
 }));
 
-/* ✅ IMPORTANT: handle preflight */
-app.options("*/", cors());
+app.options("/*", cors());
 
 app.use(express.json());
 app.use(express.static("public"));
