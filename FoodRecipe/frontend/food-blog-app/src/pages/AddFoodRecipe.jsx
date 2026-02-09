@@ -14,19 +14,19 @@ export default function AddFoodRecipe() {
         console.log(recipeData)
         const formData = new FormData()
         for (let key in recipeData) {
-        //formData.append(key, recipeData[key])
-        if (Array.isArray(recipeData[key])) {
-        recipeData[key].forEach(item => formData.append(key, item))
-        } else {
-        formData.append(key, recipeData[key])
-        }
+            //formData.append(key, recipeData[key])
+            if (Array.isArray(recipeData[key])) {
+                recipeData[key].forEach(item => formData.append(key, item))
+            } else {
+                formData.append(key, recipeData[key])
+            }
 
         }
 
-        await axios.post("https://recipe-app-rgal.onrender.com/recipe", formData, {
-        headers:{
-            authorization: "bearer " + localStorage.getItem("token")
-        }
+        await axios.post(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/recipe`, formData, {
+            headers: {
+                authorization: "bearer " + localStorage.getItem("token")
+            }
         })
             .then(() => navigate("/"))
     }

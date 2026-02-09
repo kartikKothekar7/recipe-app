@@ -9,7 +9,7 @@ export default function EditRecipe() {
 
     useEffect(()=>{
         const getData=async()=>{
-            await axios.get(`https://recipe-app-rgal.onrender.com/recipe/${id}`)
+            await axios.get(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/recipe/${id}`)
             .then(response=>{
                 let res=response.data
                 setRecipeData({
@@ -41,7 +41,7 @@ export default function EditRecipe() {
         }
         }
 
-        await axios.put(`https://recipe-app-rgal.onrender.com/recipe/${id}`, formData, {
+        await axios.put(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/recipe/${id}`, formData, {
         headers:{
             authorization: "bearer " + localStorage.getItem("token")
         }
